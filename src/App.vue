@@ -5,6 +5,7 @@ import TechStack from './components/TechStack.vue'
 import Education from './components/Education.vue'
 import Experience from './components/Experience.vue'
 import Projects from './components/Projects.vue'
+import GitHubContributions from './components/GitHubContributions.vue'
 import Articles from './components/Articles.vue'
 import Footer from './components/Footer.vue'
 
@@ -36,6 +37,7 @@ const toggleDark = useToggle(isDark)
     <main class="max-w-2xl mx-auto px-6 py-12">
       <Header />
       <TechStack />
+      <GitHubContributions />
       <Education />
       <Experience />
       <Projects />
