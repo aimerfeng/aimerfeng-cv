@@ -15,7 +15,7 @@ const projects = [
   {
     name: 'Vue Web3 Tip',
     description: 'Vue 3 多链加密货币打赏组件，支持 Ethereum、Polygon、Solana',
-    url: 'https://github.com/aimerfeng/vue-web3-tip',
+    url: 'https://github.com/aimerfeng/bolg_reward',
     techStack: ['Vue 3', 'TypeScript', 'Web3', 'MetaMask'],
     highlights: [
       '支持多链打赏（ETH/MATIC/SOL）',
