@@ -1,15 +1,15 @@
 <script setup lang="ts">
 const projects = [
   {
-    name: 'Smart Wallet Contract',
-    description: '基于 ERC-4337 账户抽象的智能钱包合约，支持社交恢复、多签授权、Gas 代付等功能',
-    url: 'https://github.com/aimerfeng', // 待更新
-    techStack: ['Solidity', 'Hardhat', 'Ethers.js', 'TypeScript'],
+    name: 'AI Smart Wallet',
+    description: '基于 ERC-4337 账户抽象的 AI 智能钱包，支持社交恢复、多签授权、Gas 代付等功能',
+    url: 'https://github.com/aimerfeng/AI-Smart-Wallet',
+    techStack: ['Solidity', 'Hardhat', 'Ethers.js', 'TypeScript', 'AI'],
     highlights: [
       '实现 ERC-4337 账户抽象标准',
       '支持社交恢复机制，通过守护者恢复账户',
       '集成 Paymaster 实现 Gas 代付',
-      '多签授权支持，增强资产安全性',
+      'AI 辅助交易决策与风险评估',
     ],
   },
   {
