@@ -1,6 +1,18 @@
 <script setup lang="ts">
 const projects = [
   {
+    name: 'Gemini Prompt Optimizer',
+    description: '基于 Gemini API 的智能提示词优化工具，自动分析和改进 AI 提示词质量',
+    url: 'https://github.com/aimerfeng/gemini-',
+    techStack: ['Python', 'Gemini API', 'Prompt Engineering', 'AI'],
+    highlights: [
+      '智能分析提示词结构和语义',
+      '自动优化提示词以提高输出质量',
+      '支持多种优化策略和模板',
+      '提供详细的优化建议和对比',
+    ],
+  },
+  {
     name: 'AI Smart Wallet',
     description: '基于 ERC-4337 账户抽象的 AI 智能钱包，支持社交恢复、多签授权、Gas 代付等功能',
     url: 'https://github.com/aimerfeng/AI-Smart-Wallet',
