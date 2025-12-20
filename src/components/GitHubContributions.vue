@@ -3,9 +3,11 @@ import { useDark } from '@vueuse/core'
 
 const isDark = useDark()
 const username = 'aimerfeng'
+const statsBaseUrl = 'https://github-readme-stats-omega-black-83.vercel.app'
 
-// 你自部署的 github-readme-stats
-const statsBaseUrl = 'https://github-readme-stats-4gttgrkur-aimerfengli-2226s-projects.vercel.app'
+// 蛇吃绿墙动画 - 来自你的 GitHub Actions 生成
+const snakeSvgDark = 'https://github.com/AimerFeng/AimerFeng/raw/output/github-contribution-grid-snake-dark.svg'
+const snakeSvgLight = 'https://github.com/AimerFeng/AimerFeng/raw/output/github-contribution-grid-snake.svg'
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const statsBaseUrl = 'https://github-readme-stats-4gttgrkur-aimerfengli-2226s-pr
     </h2>
 
     <div class="github-contributions">
-      <!-- GitHub Contribution Graph (绿墙) -->
+      <!-- 蛇吃绿墙动画 -->
       <a
         :href="`https://github.com/${username}`"
         target="_blank"
@@ -24,14 +26,14 @@ const statsBaseUrl = 'https://github-readme-stats-4gttgrkur-aimerfengli-2226s-pr
         class="block"
       >
         <img
-          :src="`https://ghchart.rshah.org/${isDark ? '4ade80' : '22863a'}/${username}`"
-          :alt="`${username}'s GitHub Contribution Graph`"
+          :src="isDark ? snakeSvgDark : snakeSvgLight"
+          :alt="`${username}'s GitHub Contribution Snake`"
           class="w-full rounded-lg"
           loading="lazy"
         />
       </a>
 
-      <!-- GitHub Stats (使用自部署版本，包含私有仓库) -->
+      <!-- GitHub Stats -->
       <div class="mt-4 flex flex-wrap gap-3 justify-center">
         <a :href="`https://github.com/${username}`" target="_blank" rel="noopener noreferrer">
           <img
