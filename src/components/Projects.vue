@@ -1,0 +1,76 @@
+<script setup lang="ts">
+const projects = [
+  {
+    name: 'Smart Wallet Contract',
+    description: '基于 ERC-4337 账户抽象的智能钱包合约，支持社交恢复、多签授权、Gas 代付等功能',
+    url: 'https://github.com/aimerfeng', // 待更新
+    techStack: ['Solidity', 'Hardhat', 'Ethers.js', 'TypeScript'],
+    highlights: [
+      '实现 ERC-4337 账户抽象标准',
+      '支持社交恢复机制，通过守护者恢复账户',
+      '集成 Paymaster 实现 Gas 代付',
+      '多签授权支持，增强资产安全性',
+    ],
+  },
+  {
+    name: 'AimerFeng Blog',
+    description: '个人技术博客，基于 Vue 3 + Vite + UnoCSS 构建，支持 Web3 打赏功能',
+    url: 'https://github.com/aimerfeng/aimerfeng-blog',
+    techStack: ['Vue 3', 'Vite', 'UnoCSS', 'TypeScript', 'Markdown'],
+    highlights: [
+      '响应式设计，支持暗色模式',
+      '集成 Web3 钱包连接与打赏功能',
+      '自动生成 RSS 订阅',
+      'SEO 优化与 OG 图片生成',
+    ],
+  },
+]
+</script>
+
+<template>
+  <section class="mb-12">
+    <h2 class="section-title flex items-center gap-2">
+      <div class="i-carbon-cube" />
+      项目
+    </h2>
+    
+    <div class="space-y-6">
+      <div
+        v-for="project in projects"
+        :key="project.name"
+        class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 transition-colors"
+      >
+        <div class="flex items-start justify-between mb-2">
+          <h3 class="font-semibold">{{ project.name }}</h3>
+          <a
+            :href="project.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="icon-btn"
+            title="查看项目"
+          >
+            <div class="i-carbon-launch" />
+          </a>
+        </div>
+        
+        <p class="text-sm text-light mb-3">{{ project.description }}</p>
+        
+        <ul class="list-disc list-inside space-y-1 text-sm text-light mb-3">
+          <li v-for="highlight in project.highlights" :key="highlight">
+            {{ highlight }}
+          </li>
+        </ul>
+        
+        <div class="flex flex-wrap gap-2">
+          <span
+            v-for="tech in project.techStack"
+            :key="tech"
+            class="px-2 py-0.5 bg-blue-500/10 text-blue-500 rounded text-xs"
+          >
+            {{ tech }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
