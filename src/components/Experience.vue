@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const experiences = [
   {
-    company: '某量化科技公司',
+    company: '钧誉资产科技有限公司',
     position: '全栈工程师 / 量化开发',
-    period: '2023 - 至今',
+    period: '2024.06 - 2024.11',
     location: '成都',
     description: '负责量化投资回测系统的设计与开发',
     highlights: [

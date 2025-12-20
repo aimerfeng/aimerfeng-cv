@@ -13,6 +13,18 @@ const projects = [
     ],
   },
   {
+    name: 'Vue Web3 Tip',
+    description: 'Vue 3 多链加密货币打赏组件，支持 Ethereum、Polygon、Solana',
+    url: 'https://github.com/aimerfeng/vue-web3-tip',
+    techStack: ['Vue 3', 'TypeScript', 'Web3', 'MetaMask'],
+    highlights: [
+      '支持多链打赏（ETH/MATIC/SOL）',
+      'MetaMask 和 Phantom 钱包集成',
+      '可自定义样式和预设金额',
+      'TypeScript 类型支持',
+    ],
+  },
+  {
     name: 'AimerFeng Blog',
     description: '个人技术博客，基于 Vue 3 + Vite + UnoCSS 构建，支持 Web3 打赏功能',
     url: 'https://github.com/aimerfeng/aimerfeng-blog',

@@ -3,37 +3,37 @@ const articles = [
   {
     title: 'Web3 入门指南',
     description: '从零开始了解区块链、智能合约和去中心化应用',
-    url: 'https://aimerfeng.com/posts/web3-intro',
-    date: '2024',
+    url: 'https://aimerfeng.me/posts/web3-intro',
+    date: '2025.06',
     tags: ['Web3', 'Blockchain'],
   },
   {
     title: '智能合约开发实践',
     description: '使用 Solidity 和 Hardhat 开发安全的智能合约',
-    url: 'https://aimerfeng.com/posts/smart-contracts',
-    date: '2024',
+    url: 'https://aimerfeng.me/posts/smart-contracts',
+    date: '2025.07',
     tags: ['Solidity', 'Smart Contract'],
   },
   {
     title: 'AI Agents 探索',
     description: '探索 AI Agent 的架构设计与实现',
-    url: 'https://aimerfeng.com/posts/ai-agents',
-    date: '2024',
+    url: 'https://aimerfeng.me/posts/ai-agents',
+    date: '2025.08',
     tags: ['AI', 'LLM'],
   },
   {
     title: 'LLM 开发实践',
     description: '大语言模型应用开发的最佳实践',
-    url: 'https://aimerfeng.com/posts/llm-dev',
-    date: '2024',
+    url: 'https://aimerfeng.me/posts/llm-dev',
+    date: '2025.09',
     tags: ['LLM', 'AI'],
   },
   {
-    title: '重新构想原子化 CSS',
-    description: '探索 UnoCSS 的设计理念与实现',
-    url: 'https://aimerfeng.com/posts/reimagine-atomic-css-zh',
-    date: '2024',
-    tags: ['CSS', 'UnoCSS'],
+    title: 'Web3 打赏功能实现',
+    description: '在博客中集成多链加密货币打赏功能',
+    url: 'https://aimerfeng.me/posts/web3-tip-feature',
+    date: '2025.10',
+    tags: ['Web3', 'Vue'],
   },
 ]
 </script>
@@ -77,7 +77,7 @@ const articles = [
     
     <div class="mt-4 text-center">
       <a
-        href="https://aimerfeng.com/posts"
+        href="https://aimerfeng.me/posts"
         target="_blank"
         rel="noopener noreferrer"
         class="text-sm text-blue-500 hover:underline"
