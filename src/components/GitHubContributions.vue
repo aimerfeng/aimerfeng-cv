@@ -3,45 +3,39 @@ import { useDark } from '@vueuse/core'
 
 const isDark = useDark()
 const username = 'aimerfeng'
+
+// 如果你自部署了 github-readme-stats，可以替换这个 URL
+// 并添加 ?count_private=true 参数
+// const statsBaseUrl = 'https://your-vercel-deployment.vercel.app'
 </script>
 
 <template>
   <section class="mb-8">
-    <h2 class="section-title">
-      <span class="i-carbon-logo-github mr-2" />
+    <h2 class="section-title flex items-center gap-2">
+      <span class="i-carbon-logo-github" />
       GitHub 贡献
     </h2>
-    
+
     <div class="github-contributions">
-      <!-- GitHub Contribution Graph using ghchart.rshah.org -->
-      <a :href="`https://github.com/${username}`" target="_blank" rel="noopener noreferrer">
-        <img 
+      <!-- GitHub Contribution Graph (绿墙) -->
+      <a
+        :href="`https://github.com/${username}`"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block"
+      >
+        <img
           :src="`https://ghchart.rshah.org/${isDark ? '4ade80' : '22863a'}/${username}`"
           :alt="`${username}'s GitHub Contribution Graph`"
           class="w-full rounded-lg"
           loading="lazy"
         />
       </a>
-      
-      <!-- GitHub Stats -->
-      <div class="mt-4 flex flex-wrap gap-3 justify-center">
-        <a :href="`https://github.com/${username}`" target="_blank" rel="noopener noreferrer">
-          <img 
-            :src="`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=${isDark ? 'dark' : 'default'}&hide_border=true&bg_color=${isDark ? '00000000' : 'ffffff00'}`"
-            alt="GitHub Stats"
-            class="h-32"
-            loading="lazy"
-          />
-        </a>
-        <a :href="`https://github.com/${username}`" target="_blank" rel="noopener noreferrer">
-          <img 
-            :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${isDark ? 'dark' : 'default'}&hide_border=true&bg_color=${isDark ? '00000000' : 'ffffff00'}`"
-            alt="Top Languages"
-            class="h-32"
-            loading="lazy"
-          />
-        </a>
-      </div>
+
+      <!-- 提示信息 -->
+      <p class="text-xs text-center mt-2 opacity-60">
+        点击查看完整 GitHub 主页
+      </p>
     </div>
   </section>
 </template>
