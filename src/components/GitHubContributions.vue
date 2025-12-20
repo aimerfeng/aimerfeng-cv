@@ -4,9 +4,8 @@ import { useDark } from '@vueuse/core'
 const isDark = useDark()
 const username = 'aimerfeng'
 
-// 如果你自部署了 github-readme-stats，可以替换这个 URL
-// 并添加 ?count_private=true 参数
-// const statsBaseUrl = 'https://your-vercel-deployment.vercel.app'
+// 你自部署的 github-readme-stats
+const statsBaseUrl = 'https://github-readme-stats-4gttgrkur-aimerfengli-2226s-projects.vercel.app'
 </script>
 
 <template>
@@ -32,10 +31,25 @@ const username = 'aimerfeng'
         />
       </a>
 
-      <!-- 提示信息 -->
-      <p class="text-xs text-center mt-2 opacity-60">
-        点击查看完整 GitHub 主页
-      </p>
+      <!-- GitHub Stats (使用自部署版本，包含私有仓库) -->
+      <div class="mt-4 flex flex-wrap gap-3 justify-center">
+        <a :href="`https://github.com/${username}`" target="_blank" rel="noopener noreferrer">
+          <img
+            :src="`${statsBaseUrl}/api?username=${username}&show_icons=true&count_private=true&include_all_commits=true&theme=${isDark ? 'dark' : 'default'}&hide_border=true&bg_color=${isDark ? '00000000' : 'ffffff00'}`"
+            alt="GitHub Stats"
+            class="h-36"
+            loading="lazy"
+          />
+        </a>
+        <a :href="`https://github.com/${username}`" target="_blank" rel="noopener noreferrer">
+          <img
+            :src="`${statsBaseUrl}/api/top-langs/?username=${username}&layout=compact&count_private=true&theme=${isDark ? 'dark' : 'default'}&hide_border=true&bg_color=${isDark ? '00000000' : 'ffffff00'}`"
+            alt="Top Languages"
+            class="h-36"
+            loading="lazy"
+          />
+        </a>
+      </div>
     </div>
   </section>
 </template>
