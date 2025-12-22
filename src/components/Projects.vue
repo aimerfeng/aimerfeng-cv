@@ -1,6 +1,19 @@
 <script setup lang="ts">
 const projects = [
   {
+    name: 'HR QA System',
+    description: '基于 AI 的智能 HR 问答系统，支持自然语言查询员工信息、考勤、薪资等数据',
+    url: 'https://github.com/aimerfeng/hr-qa-system',
+    demo: 'https://hr-qa-system.vercel.app',
+    techStack: ['Python', 'FastAPI', 'LangChain', 'Vue 3', 'Docker'],
+    highlights: [
+      '自然语言理解，智能解析 HR 相关问题',
+      '支持多轮对话和上下文理解',
+      '已部署到 Vercel 和 Docker Hub',
+      '前后端分离架构，易于扩展',
+    ],
+  },
+  {
     name: 'Gemini Prompt Optimizer',
     description: '基于 Gemini API 的智能提示词优化工具，自动分析和改进 AI 提示词质量',
     url: 'https://github.com/aimerfeng/gemini-',
@@ -39,7 +52,7 @@ const projects = [
   {
     name: 'AimerFeng Blog',
     description: '个人技术博客，基于 Vue 3 + Vite + UnoCSS 构建，支持 Web3 打赏功能',
-    url: 'https://github.com/aimerfeng/aimerfeng-blog',
+    url: 'https://github.com/aimerfeng/AimerFeng_blog',
     techStack: ['Vue 3', 'Vite', 'UnoCSS', 'TypeScript', 'Markdown'],
     highlights: [
       '响应式设计，支持暗色模式',

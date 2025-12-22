@@ -3,7 +3,7 @@ const education = {
   school: '西华师范大学',
   degree: '本科',
   major: '软件工程',
-  period: '2020 - 2024',
+  period: '2021 - 2025',
   location: '四川南充',
 }
 
