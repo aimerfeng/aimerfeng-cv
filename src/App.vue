@@ -8,6 +8,7 @@ import Projects from './components/Projects.vue'
 import GitHubContributions from './components/GitHubContributions.vue'
 import Articles from './components/Articles.vue'
 import Footer from './components/Footer.vue'
+import SideNav from './components/SideNav.vue'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
@@ -15,6 +16,9 @@ const toggleDark = useToggle(isDark)
 
 <template>
   <div class="min-h-screen">
+    <!-- Side Navigation -->
+    <SideNav />
+
     <!-- Dark mode toggle -->
     <button
       class="fixed top-4 right-4 z-50 icon-btn no-print"
@@ -35,13 +39,27 @@ const toggleDark = useToggle(isDark)
     </button>
 
     <main class="max-w-2xl mx-auto px-6 py-12">
-      <Header />
-      <TechStack />
-      <GitHubContributions />
-      <Education />
-      <Experience />
-      <Projects />
-      <Articles />
+      <section id="header">
+        <Header />
+      </section>
+      <section id="tech-stack">
+        <TechStack />
+      </section>
+      <section id="github">
+        <GitHubContributions />
+      </section>
+      <section id="education">
+        <Education />
+      </section>
+      <section id="experience">
+        <Experience />
+      </section>
+      <section id="projects">
+        <Projects />
+      </section>
+      <section id="articles">
+        <Articles />
+      </section>
       <Footer />
     </main>
   </div>
