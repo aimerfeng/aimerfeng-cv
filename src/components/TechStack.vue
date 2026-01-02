@@ -2,10 +2,11 @@
 const techStacks = {
   'Languages': [
     { name: 'TypeScript', icon: 'i-logos-typescript-icon' },
-    { name: 'JavaScript', icon: 'i-logos-javascript' },
     { name: 'Python', icon: 'i-logos-python' },
     { name: 'Solidity', icon: 'i-logos-solidity' },
-    { name: 'Rust', icon: 'i-logos-rust' },
+    { name: 'JavaScript', icon: 'i-logos-javascript' },
+    { name: 'Kotlin', icon: 'i-logos-kotlin-icon' },
+    { name: 'C#', icon: 'i-logos-c-sharp' },
   ],
   'Frontend': [
     { name: 'Vue.js', icon: 'i-logos-vue' },
@@ -16,31 +17,31 @@ const techStacks = {
   ],
   'Backend & Runtime': [
     { name: 'Node.js', icon: 'i-logos-nodejs-icon' },
+    { name: 'FastAPI', icon: 'i-logos-fastapi-icon' },
     { name: 'Express', icon: 'i-simple-icons-express' },
-    { name: 'NestJS', icon: 'i-logos-nestjs' },
     { name: 'PostgreSQL', icon: 'i-logos-postgresql' },
     { name: 'Redis', icon: 'i-logos-redis' },
   ],
-  'Blockchain': [
+  'Blockchain & Web3': [
     { name: 'Ethereum', icon: 'i-logos-ethereum' },
     { name: 'Hardhat', icon: 'i-logos-hardhat-icon' },
     { name: 'Ethers.js', icon: 'i-logos-ethers' },
+    { name: 'Web3.js', icon: 'i-simple-icons-web3dotjs' },
     { name: 'IPFS', icon: 'i-simple-icons-ipfs' },
-    { name: 'TheGraph', icon: 'i-simple-icons-thegraph' },
   ],
-  'AI & Deep Learning': [
-    { name: 'PyTorch', icon: 'i-logos-pytorch-icon' },
-    { name: 'TensorFlow', icon: 'i-logos-tensorflow' },
+  'AI & LLM': [
     { name: 'LangChain', icon: 'i-simple-icons-langchain' },
     { name: 'OpenAI', icon: 'i-simple-icons-openai' },
+    { name: 'Gemini', icon: 'i-simple-icons-googlegemini' },
     { name: 'Hugging Face', icon: 'i-simple-icons-huggingface' },
+    { name: 'PyTorch', icon: 'i-logos-pytorch-icon' },
   ],
-  'Tools': [
+  'Tools & DevOps': [
     { name: 'Git', icon: 'i-logos-git-icon' },
     { name: 'Docker', icon: 'i-logos-docker-icon' },
     { name: 'VS Code', icon: 'i-logos-visual-studio-code' },
-    { name: 'Linux', icon: 'i-logos-linux-tux' },
     { name: 'Vercel', icon: 'i-logos-vercel-icon' },
+    { name: 'Linux', icon: 'i-logos-linux-tux' },
   ],
 }
 </script>

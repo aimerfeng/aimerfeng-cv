@@ -3,6 +3,8 @@ const socialLinks = [
   { icon: 'i-carbon-logo-github', url: 'https://github.com/aimerfeng', title: 'GitHub' },
   { icon: 'i-carbon-logo-x', url: 'https://x.com/aimer71976', title: 'X (Twitter)' },
   { icon: 'i-carbon-email', url: 'mailto:2002lihaoran@gmail.com', title: 'Email' },
+  { icon: 'i-carbon-blog', url: 'https://aimer-feng-blog.vercel.app/', title: 'Blog' },
+  { icon: 'i-carbon-document', url: 'https://blog.csdn.net/qq_61185581', title: 'CSDN' },
   { icon: 'i-carbon-chat', url: '#', title: '微信: aimerfengllilu', isWeChat: true },
 ]
 </script>
