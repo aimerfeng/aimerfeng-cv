@@ -5,13 +5,16 @@ import TechStack from './components/TechStack.vue'
 import Education from './components/Education.vue'
 import Experience from './components/Experience.vue'
 import Projects from './components/Projects.vue'
-import GitHubContributions from './components/GitHubContributions.vue'
 import Articles from './components/Articles.vue'
 import Footer from './components/Footer.vue'
 import SideNav from './components/SideNav.vue'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+
+function printResume() {
+  window.print()
+}
 </script>
 
 <template>
@@ -32,32 +35,29 @@ const toggleDark = useToggle(isDark)
     <!-- Print button -->
     <button
       class="fixed top-4 right-14 z-50 icon-btn no-print"
-      @click="window.print()"
+      @click="printResume"
       title="打印简历"
     >
       <div class="i-carbon-printer text-xl" />
     </button>
 
-    <main class="max-w-2xl mx-auto px-6 py-12">
-      <section id="header">
+    <main class="mx-auto max-w-4xl space-y-12 px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
+      <section id="header" class="scroll-mt-24">
         <Header />
       </section>
-      <section id="tech-stack">
+      <section id="tech-stack" class="scroll-mt-24">
         <TechStack />
       </section>
-      <section id="github">
-        <GitHubContributions />
-      </section>
-      <section id="education">
-        <Education />
-      </section>
-      <section id="experience">
+      <section id="experience" class="scroll-mt-24">
         <Experience />
       </section>
-      <section id="projects">
+      <section id="projects" class="scroll-mt-24">
         <Projects />
       </section>
-      <section id="articles">
+      <section id="education" class="scroll-mt-24">
+        <Education />
+      </section>
+      <section id="articles" class="scroll-mt-24">
         <Articles />
       </section>
       <Footer />

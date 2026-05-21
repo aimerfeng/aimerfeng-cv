@@ -1,15 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-
-const navItems = [
-  { id: 'header', icon: 'i-carbon-user', label: '简介' },
-  { id: 'tech-stack', icon: 'i-carbon-code', label: '技术栈' },
-  { id: 'github', icon: 'i-carbon-logo-github', label: 'GitHub' },
-  { id: 'education', icon: 'i-carbon-education', label: '教育' },
-  { id: 'experience', icon: 'i-carbon-building', label: '经历' },
-  { id: 'projects', icon: 'i-carbon-cube', label: '项目' },
-  { id: 'articles', icon: 'i-carbon-document', label: '文章' },
-]
+import { navItems } from '../data/site'
 
 const activeSection = ref('header')
 const isExpanded = ref(false)
@@ -69,76 +60,68 @@ onUnmounted(() => {
         <span class="nav-label">{{ item.label }}</span>
       </button>
     </div>
-    
-    <!-- Progress indicator -->
-    <div class="nav-progress">
-      <div 
-        class="progress-dot"
-        v-for="(item, index) in navItems"
-        :key="item.id"
-        :class="{ active: activeSection === item.id, passed: navItems.findIndex(n => n.id === activeSection) >= index }"
-      />
-    </div>
   </nav>
 </template>
 
 <style scoped>
 .side-nav {
   position: fixed;
-  left: 16px;
+  left: 18px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 12px 8px;
-  background: var(--c-bg);
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.78);
   border: 1px solid var(--c-border);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  width: 48px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(18px);
+  transition: width 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  width: 56px;
   overflow: hidden;
 }
 
 .side-nav.expanded {
-  width: 120px;
+  width: 144px;
 }
 
 .nav-items {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  width: 100%;
+  padding: 10px 11px;
   border: none;
   background: transparent;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
   color: var(--c-text-light);
+  text-align: left;
   white-space: nowrap;
 }
 
 .nav-item:hover {
-  background: var(--c-primary);
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--c-primary);
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--c-text);
 }
 
 .nav-item.active {
-  background: var(--c-primary);
-  color: white;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--c-primary);
 }
 
 .nav-icon {
-  font-size: 18px;
+  font-size: 17px;
   flex-shrink: 0;
 }
 
@@ -146,42 +129,13 @@ onUnmounted(() => {
   font-size: 12px;
   font-weight: 500;
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateX(-6px);
   transition: all 0.2s ease;
 }
 
 .side-nav.expanded .nav-label {
   opacity: 1;
   transform: translateX(0);
-}
-
-.nav-progress {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding-top: 8px;
-  border-top: 1px solid var(--c-border);
-  margin-top: 4px;
-}
-
-.progress-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--c-border);
-  transition: all 0.2s ease;
-}
-
-.progress-dot.passed {
-  background: var(--c-primary);
-  opacity: 0.4;
-}
-
-.progress-dot.active {
-  background: var(--c-primary);
-  opacity: 1;
-  transform: scale(1.3);
 }
 
 /* Hide on small screens */
@@ -193,6 +147,7 @@ onUnmounted(() => {
 
 /* Dark mode adjustments */
 html.dark .side-nav {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(15, 17, 21, 0.72);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
 }
 </style>

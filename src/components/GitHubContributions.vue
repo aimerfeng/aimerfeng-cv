@@ -5,7 +5,6 @@ const isDark = useDark()
 const username = 'aimerfeng'
 const statsBaseUrl = 'https://github-readme-stats-omega-black-83.vercel.app'
 
-// 蛇吃绿墙动画 - 来自你的 GitHub Actions 生成
 const snakeSvgDark = 'https://github.com/aimerfeng/aimerfeng/raw/output/github-contribution-grid-snake-dark.svg'
 const snakeSvgLight = 'https://github.com/aimerfeng/aimerfeng/raw/output/github-contribution-grid-snake.svg'
 </script>
@@ -17,29 +16,27 @@ const snakeSvgLight = 'https://github.com/aimerfeng/aimerfeng/raw/output/github-
       GitHub 贡献
     </h2>
 
-    <div class="github-contributions">
-      <!-- 蛇吃绿墙动画 -->
+    <div class="github-contributions card-surface px-4 py-5 sm:px-5">
       <a
         :href="`https://github.com/${username}`"
         target="_blank"
         rel="noopener noreferrer"
-        class="block"
+        class="block overflow-hidden rounded-xl"
       >
         <img
           :src="isDark ? snakeSvgDark : snakeSvgLight"
           :alt="`${username}'s GitHub Contribution Snake`"
-          class="w-full rounded-lg"
+          class="w-full rounded-xl"
           loading="lazy"
         />
       </a>
 
-      <!-- GitHub Stats -->
-      <div class="mt-4 flex flex-wrap gap-3 justify-center">
+      <div class="mt-4 grid gap-3 lg:grid-cols-2">
         <a :href="`https://github.com/${username}`" target="_blank" rel="noopener noreferrer">
           <img
             :src="`${statsBaseUrl}/api?username=${username}&show_icons=true&count_private=true&include_all_commits=true&theme=${isDark ? 'dark' : 'default'}&hide_border=true&bg_color=${isDark ? '00000000' : 'ffffff00'}`"
             alt="GitHub Stats"
-            class="h-36"
+            class="h-36 w-full object-contain"
             loading="lazy"
           />
         </a>
@@ -47,7 +44,7 @@ const snakeSvgLight = 'https://github.com/aimerfeng/aimerfeng/raw/output/github-
           <img
             :src="`${statsBaseUrl}/api/top-langs/?username=${username}&layout=compact&count_private=true&theme=${isDark ? 'dark' : 'default'}&hide_border=true&bg_color=${isDark ? '00000000' : 'ffffff00'}`"
             alt="Top Languages"
-            class="h-36"
+            class="h-36 w-full object-contain"
             loading="lazy"
           />
         </a>
