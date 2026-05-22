@@ -12,8 +12,12 @@ const snakeSvgLight = 'https://github.com/aimerfeng/aimerfeng/raw/output/github-
 const cardRef = ref<HTMLElement | null>(null)
 const isFlipped = ref(false)
 const leaveTimer = ref<number | null>(null)
+const canHover = typeof window !== 'undefined'
+  && window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
 function handleEnter() {
+  if (!canHover) return
+
   if (leaveTimer.value !== null) {
     window.clearTimeout(leaveTimer.value)
     leaveTimer.value = null
@@ -23,6 +27,8 @@ function handleEnter() {
 }
 
 function handleLeave() {
+  if (!canHover) return
+
   resetTilt()
   if (leaveTimer.value !== null) {
     window.clearTimeout(leaveTimer.value)
@@ -35,6 +41,8 @@ function handleLeave() {
 }
 
 function handleMove(event: PointerEvent) {
+  if (!canHover) return
+
   if (!cardRef.value || !isFlipped.value) return
 
   const rect = cardRef.value.getBoundingClientRect()
@@ -48,6 +56,16 @@ function resetTilt() {
   if (!cardRef.value) return
   cardRef.value.style.setProperty('--tilt-x', '0deg')
   cardRef.value.style.setProperty('--tilt-y', '0deg')
+}
+
+function toggleFlip() {
+  if (leaveTimer.value !== null) {
+    window.clearTimeout(leaveTimer.value)
+    leaveTimer.value = null
+  }
+
+  resetTilt()
+  isFlipped.value = !isFlipped.value
 }
 </script>
 
@@ -164,6 +182,19 @@ function resetTilt() {
           </div>
         </div>
       </section>
+    </div>
+
+    <div class="hero-mobile-actions no-print">
+      <button
+        type="button"
+        class="hero-flip-btn icon-btn"
+        :aria-pressed="isFlipped"
+        :aria-label="isFlipped ? '返回简介' : '查看 GitHub 面板'"
+        title="翻面"
+        @click="toggleFlip"
+      >
+        <div class="i-carbon-flip-vertical text-xl" />
+      </button>
     </div>
   </header>
 </template>
@@ -286,30 +317,48 @@ function resetTilt() {
 }
 
 @media (max-width: 560px) {
-  .hero-3d:is(.flipped, :hover) .hero-3d-inner {
-    min-height: 44rem;
+  .hero-3d-inner {
+    min-height: 30rem;
+  }
+
+  .hero-mobile-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+  }
+
+  .hero-flip-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .hero-hint {
+    display: none;
   }
 
   .hero-back-stats-grid {
     grid-template-columns: 1fr;
   }
+
+  .hero-3d.flipped .hero-3d-inner {
+    min-height: 43rem;
+  }
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .hero-3d,
-  .hero-3d-inner,
-  .hero-face {
-    transform: none !important;
+  .hero-mobile-actions {
+    display: flex;
   }
+}
 
-  .hero-back {
-    position: static;
-    margin-top: 1rem;
-    transform: none !important;
-  }
+.hero-mobile-actions {
+  display: none;
+}
 
-  .hero-front {
-    position: static;
+@media (max-width: 560px) {
+  .hero-mobile-actions {
+    display: flex;
+    margin-top: 0.25rem;
   }
 }
 </style>

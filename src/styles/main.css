@@ -98,3 +98,34 @@ a:hover {
     scroll-behavior: auto !important;
   }
 }
+
+@media (max-width: 640px) {
+  body {
+    line-height: 1.55;
+  }
+
+  main {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 0.75rem !important;
+  }
+
+  .section-title {
+    margin-bottom: 0.85rem;
+    font-size: 1.05rem;
+  }
+
+  .card-surface {
+    border-radius: 1.1rem;
+  }
+
+  .chip-pill {
+    padding: 0.42rem 0.72rem;
+    font-size: 0.72rem;
+  }
+
+  .icon-btn {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+}

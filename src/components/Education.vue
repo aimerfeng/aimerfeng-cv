@@ -69,3 +69,15 @@ const achievements = [
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-surface {
+    padding: 0.95rem !important;
+  }
+}
+</style>

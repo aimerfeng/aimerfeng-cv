@@ -423,6 +423,29 @@ html.dark .project-chip:focus-visible {
   }
 }
 
+@media (max-width: 640px) {
+  .project-item {
+    width: 100%;
+  }
+
+  .project-card {
+    padding: 0.95rem !important;
+  }
+
+  .project-card h4 {
+    font-size: 0.98rem;
+  }
+
+  .project-card ul {
+    gap: 0.45rem;
+  }
+
+  .project-chip {
+    padding: 0.34rem 0.58rem;
+    font-size: 0.68rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project-card,
   .project-card::before,
