@@ -1,0 +1,348 @@
+/* A4 投递版简历：屏幕上显示为纸张，打印 / 导出 PDF 时去掉外框 */
+:root {
+  --ink: #111827;
+  --ink-2: #374151;
+  --muted: #6b7280;
+  --rule: #e5e7eb;
+  --accent: #1d4ed8;
+  --accent-soft: #eff4ff;
+  --desk: #eef0f3;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--desk);
+  color: var(--ink);
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- 屏幕工具栏 ---------- */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 14px 4px;
+  background: linear-gradient(var(--desk) 70%, transparent);
+  font-size: 14px;
+}
+
+.tool-link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.tool-link:hover {
+  color: var(--ink);
+}
+
+.tool-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tool-btn--ghost {
+  background: #fff;
+  color: var(--accent);
+}
+
+/* ---------- 纸张 ---------- */
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 40px;
+  padding: 13mm 15mm 12mm;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 12px 32px rgb(15 23 42 / 0.08);
+  font-size: 9.4pt;
+  line-height: 1.56;
+}
+
+/* ---------- 页眉 ---------- */
+.hd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8mm;
+  padding-bottom: 4mm;
+  border-bottom: 1.6pt solid var(--ink);
+}
+
+.hd-name {
+  font-size: 22pt;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.hd-alias {
+  margin-left: 2.5mm;
+  color: var(--muted);
+  font-size: 12pt;
+  font-weight: 500;
+}
+
+.hd-intent {
+  margin-top: 2.2mm;
+  color: var(--ink-2);
+  font-size: 10pt;
+}
+
+.hd-intent-label {
+  display: inline-block;
+  margin-right: 2mm;
+  padding: 0 1.6mm;
+  border-radius: 1mm;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 8.6pt;
+  font-weight: 600;
+}
+
+.hd-city {
+  white-space: nowrap;
+}
+
+.dot {
+  margin: 0 1.4mm;
+  color: var(--muted);
+}
+
+.hd-contact {
+  display: grid;
+  gap: 0.4mm;
+  font-size: 8.6pt;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.hd-contact span {
+  margin-right: 1.6mm;
+  color: var(--muted);
+}
+
+/* ---------- 区块 ---------- */
+.sec {
+  margin-top: 4.2mm;
+}
+
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  margin-bottom: 1.8mm;
+  color: var(--accent);
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  break-after: avoid;
+}
+
+.sec-title::after {
+  content: '';
+  flex: 1;
+  height: 0.6pt;
+  background: var(--rule);
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 3.6mm;
+  color: var(--ink-2);
+}
+
+.bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0.6mm;
+  top: 0.68em;
+  width: 1.2mm;
+  height: 1.2mm;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: 19mm 1fr;
+  row-gap: 0.6mm;
+}
+
+.skills dt {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.skills dd {
+  color: var(--ink-2);
+}
+
+/* ---------- 条目 ---------- */
+.entry {
+  break-inside: avoid;
+}
+
+.entry + .entry {
+  margin-top: 2.8mm;
+}
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  gap: 2.4mm;
+  margin-bottom: 0.6mm;
+}
+
+.entry-name {
+  font-size: 10.4pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.entry-role {
+  color: var(--ink-2);
+  font-size: 9pt;
+}
+
+.entry-time {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 8.8pt;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.entry-desc {
+  margin-bottom: 0.4mm;
+  color: var(--ink);
+}
+
+.entry-tech {
+  margin-top: 0.6mm;
+  color: var(--muted);
+  font-size: 8.4pt;
+}
+
+.honors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1mm 5mm;
+  color: var(--ink-2);
+}
+
+/* ---------- 打印 / PDF ---------- */
+@page {
+  size: A4;
+  margin: 12mm 0 11mm;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .sheet {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0 15mm;
+    box-shadow: none;
+  }
+}
+
+/* ---------- 小屏 ---------- */
+@media screen and (max-width: 820px) {
+  .toolbar {
+    padding: 12px 16px;
+  }
+
+  .sheet {
+    width: auto;
+    min-height: 0;
+    margin: 0 0 24px;
+    padding: 20px 16px;
+    box-shadow: none;
+    font-size: 14px;
+  }
+
+  .hd {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hd-contact {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .entry-head {
+    flex-wrap: wrap;
+  }
+
+  .entry-time {
+    margin-left: 0;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .skills dd {
+    margin-bottom: 6px;
+  }
+}

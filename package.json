@@ -7,18 +7,22 @@
     "dev": "vite",
     "build": "vite build",
     "build:check": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pdf": "bash scripts/export-pdf.sh"
   },
   "dependencies": {
-    "vue": "^3.4.0",
-    "@vueuse/core": "^10.7.0"
+    "@vueuse/core": "^10.7.0",
+    "vue": "^3.4.0"
   },
   "devDependencies": {
+    "@iconify-json/carbon": "^1.2.29",
+    "@iconify-json/logos": "^1.2.17",
+    "@iconify-json/simple-icons": "^1.2.100",
+    "@unocss/reset": "^0.58.0",
     "@vitejs/plugin-vue": "^5.0.0",
     "typescript": "~5.4.0",
-    "vite": "^5.0.0",
-    "vue-tsc": "^2.0.0",
     "unocss": "^0.58.0",
-    "@unocss/reset": "^0.58.0"
+    "vite": "^5.0.0",
+    "vue-tsc": "^2.0.0"
   }
 }

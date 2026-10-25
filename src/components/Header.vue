@@ -121,7 +121,7 @@ function toggleFlip() {
           "规范先行、Agent 协作、测试兜底——把想法稳定地变成能上线的产品。"
         </p>
 
-        <div class="mt-6 flex flex-wrap items-center gap-3">
+        <div class="hero-front-footer mt-6 flex flex-wrap items-center gap-3">
           <span class="hero-hint text-xs uppercase tracking-[0.18em] text-light">
             hover to flip
           </span>
@@ -233,8 +233,16 @@ function toggleFlip() {
 }
 
 .hero-front {
+  display: flex;
+  flex-direction: column;
   transform: rotateY(0deg) translateZ(0.02px);
   pointer-events: auto;
+}
+
+/* 背面统计更高，正面多出的空间留在联系方式上方 */
+.hero-front-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
 
 .hero-back {

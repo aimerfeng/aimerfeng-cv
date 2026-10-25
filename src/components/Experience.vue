@@ -1,51 +1,5 @@
 <script setup lang="ts">
-const experiences = [
-  {
-    company: '杭州流年光影传媒有限公司',
-    position: 'AI 全栈开发 · 核心开发者',
-    period: '2026.02 - 至今',
-    location: '杭州',
-    description: '公司 AI 创作产品线的核心开发者：从字字画布桌面版，到全新架构的 OmniBoard 创作平台（omniboard.tv），再到桌面端 AI 视频 Agent OmniCut。',
-    highlights: [
-      '主导 OmniBoard 全新架构重写并上线：集 AI 漫剧、剧本、分镜、视频于一体的无限画布工作台，贡献约 2/3 的代码提交',
-      '设计画布命令总线与按成员 / 画布隔离的撤销历史；节点的类型化端口校验在 UI、API、Agent 三端共用一套规则',
-      '搭建画布 Agent 与独立 Omni Agent（规划、流式响应、工具失败恢复），并通过工具清单向外部 Agent 开放 100+ 画布操作',
-      '接入 Seedance、Kling、Wan、MiniMax、Qwen 等视频 / 图像 / 语音模型，配合 FFmpeg、TTS、视觉分析等 Serverless 媒体函数',
-      '负责交付链路：k3s 滚动发布与数据库迁移 Job、国内 / 海外双版本、微信支付 + Stripe 计费，并为企业客户交付电商内容定制版',
-      '独立开发 OmniCut：Electron 桌面端 + Agent Server，75 个剪辑工具、FFmpeg 滤镜图渲染、本地语音识别、7 类题材 Playbook',
-      '早期负责字字画布 v1 / 2.0：Electron 桌面版持续迭代发布；2.0 抽离后端契约，支持桌面、嵌入、SaaS 等 6 种后端适配',
-    ],
-    techStack: ['TypeScript', 'React', 'React Flow', 'Fastify', 'PostgreSQL', 'Electron', 'LangGraph', 'FFmpeg', 'k3s'],
-  },
-  {
-    company: '普特教育',
-    position: 'AI 训练师',
-    period: '2025.11 - 2026.01',
-    location: '杭州',
-    description: '负责 AI 训练相关工作，协助任务流与输出质量优化。',
-    highlights: [
-      '参与 AI 训练相关流程与内容整理',
-      '支持任务流拆解、反馈整理和结果优化',
-      '协助提升模型输出质量与工作流效率',
-    ],
-    techStack: ['AI 训练', 'Prompt', '数据整理', 'Workflow'],
-  },
-  {
-    company: '钧誉资产科技有限公司',
-    position: '全栈工程师 / 量化开发（实习）',
-    period: '2024.06 - 2024.11',
-    location: '成都',
-    description: '实习期间负责量化投资回测系统的设计、开发与性能优化。',
-    highlights: [
-      '设计并实现高性能回测引擎，支持多策略并行回测',
-      '构建实时行情采集与处理管道，支撑百万级日数据处理',
-      '开发策略可视化分析平台，支持收益曲线与风险指标分析',
-      '完成核心链路性能优化，将回测速度提升 3 倍',
-      '搭建自动化交易执行流程，实现策略信号到订单的闭环',
-    ],
-    techStack: ['Python', 'Node.js', 'PostgreSQL', 'Redis', 'Vue.js', 'Docker'],
-  },
-]
+import { experiences } from '../data/resume'
 </script>
 
 <template>

@@ -1,32 +1,5 @@
 <script setup lang="ts">
-const education = {
-  school: '西华师范大学',
-  degree: '本科',
-  major: '软件工程',
-  period: '2021 - 2025',
-  location: '四川南充',
-}
-
-const achievements = [
-  {
-    title: 'ACM-ICPC 四川省赛银牌',
-    icon: 'i-carbon-trophy',
-    description: '算法竞赛省级银牌，体现扎实的数据结构与算法基础',
-    year: '2022',
-  },
-  {
-    title: 'Codeforces Rating 1600+',
-    icon: 'i-carbon-chart-line',
-    description: '持续参与在线算法竞赛，保持稳定的题感和思维训练',
-    year: '2021-2023',
-  },
-  {
-    title: '校级程序设计竞赛一等奖',
-    icon: 'i-carbon-star',
-    description: '多次获得校内编程竞赛奖项，具备较强的工程实现能力',
-    year: '2021',
-  },
-]
+import { achievements, education } from '../data/resume'
 </script>
 
 <template>

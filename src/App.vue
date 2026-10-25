@@ -12,9 +12,7 @@ import SideNav from './components/SideNav.vue'
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
-function printResume() {
-  window.print()
-}
+const resumeSheetUrl = `${import.meta.env.BASE_URL}resume.html`
 </script>
 
 <template>
@@ -32,14 +30,15 @@ function printResume() {
       <div v-else class="i-carbon-moon text-xl" />
     </button>
 
-    <!-- Print button -->
-    <button
-      class="fixed top-4 right-14 z-50 icon-btn no-print"
-      @click="printResume"
-      title="打印简历"
+    <!-- PDF 投递版入口 -->
+    <a
+      :href="resumeSheetUrl"
+      class="fixed top-4 right-16 z-50 no-print pdf-entry"
+      title="查看 / 下载 PDF 简历"
     >
-      <div class="i-carbon-printer text-xl" />
-    </button>
+      <div class="i-carbon-document-pdf text-lg" />
+      <span>PDF 简历</span>
+    </a>
 
     <main class="mx-auto max-w-4xl space-y-12 px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
       <section id="header" class="scroll-mt-24">
