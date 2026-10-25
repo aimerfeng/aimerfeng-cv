@@ -265,6 +265,9 @@ export const achievements = [
 
 /** PDF 投递版（BOSS 直聘附件）专用内容 */
 export const pdfProfile = {
+  realName: '李浩然',
+  /** 手机号不进仓库：仅在本地导出投递版时通过 RESUME_PHONE 注入 */
+  phone: import.meta.env.VITE_RESUME_PHONE as string | undefined,
   intent: 'AI 全栈 / AI 应用工程师 / Agent 平台架构',
   cities: '杭州 · 上海',
   onlineResume: 'aimerfeng.github.io/aimerfeng-cv',

@@ -40,7 +40,7 @@ function printSheet() {
     <header class="hd">
       <div class="hd-main">
         <h1 class="hd-name">
-          {{ profile.displayName }}<span class="hd-alias">{{ profile.chineseName }}</span>
+          {{ pdfProfile.realName }}<span class="hd-alias">{{ profile.displayName }}</span>
         </h1>
         <p class="hd-intent">
           <span class="hd-intent-label">求职意向</span>{{ pdfProfile.intent }}
@@ -48,6 +48,7 @@ function printSheet() {
         </p>
       </div>
       <ul class="hd-contact">
+        <li v-if="pdfProfile.phone"><span>电话</span>{{ pdfProfile.phone }}</li>
         <li><span>邮箱</span>{{ pdfProfile.email }}</li>
         <li><span>微信</span>{{ pdfProfile.wechat }}</li>
         <li><span>GitHub</span>{{ pdfProfile.github }}</li>
