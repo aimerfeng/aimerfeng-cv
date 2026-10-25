@@ -8,15 +8,15 @@ export interface SocialLink {
 
 export const siteMeta = {
   title: 'AimerFeng | CV',
-  description: 'AimerFeng 的个人简历站，展示经历、项目、技术栈与文章。',
+  description: 'AimerFeng 的个人简历站：AI 全栈 / AI Agent 平台工程师，展示经历、项目、技术栈与文章。',
 }
 
 export const profile = {
   displayName: 'AimerFeng',
   chineseName: '然然',
   location: '杭州，中国',
-  summary: 'AI 全栈开发，专注把复杂需求拆成清晰、可用、能落地的产品与系统。',
-  tags: ['前端工程师', 'AI 全栈开发', '区块链开发', 'AI 应用'],
+  summary: 'AI 全栈工程师，专注 Agent 平台与 AI 创作工具，能把产品从 0 做到上线。',
+  tags: ['AI 应用工程师', 'AI 全栈开发', 'Agent 平台架构', 'AI 创作工具'],
   socialLinks: [
     { icon: 'i-carbon-logo-github', url: 'https://github.com/aimerfeng', title: 'GitHub' },
     { icon: 'i-carbon-logo-x', url: 'https://x.com/aimer71976', title: 'X (Twitter)' },

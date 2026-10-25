@@ -1,6 +1,12 @@
 import { defineConfig, presetUno, presetIcons, presetWebFonts } from 'unocss'
 
 export default defineConfig({
+  content: {
+    pipeline: {
+      // site.ts 里的图标类名也需要被扫描
+      include: [/\.(vue|ts|html)($|\?)/],
+    },
+  },
   presets: [
     presetUno(),
     presetIcons({

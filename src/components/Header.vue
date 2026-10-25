@@ -118,7 +118,7 @@ function toggleFlip() {
         </div>
 
         <p class="mt-6 max-w-2xl border-l-2 border-blue-500/40 pl-4 text-sm italic text-light">
-          "用清晰的表达和可落地的实现，把想法变成能交付的产品。"
+          "规范先行、Agent 协作、测试兜底——把想法稳定地变成能上线的产品。"
         </p>
 
         <div class="mt-6 flex flex-wrap items-center gap-3">
@@ -193,7 +193,7 @@ function toggleFlip() {
         title="翻面"
         @click="toggleFlip"
       >
-        <div class="i-carbon-flip-vertical text-xl" />
+        <div class="i-carbon-renew text-xl" />
       </button>
     </div>
   </header>
@@ -318,7 +318,7 @@ function toggleFlip() {
 
 @media (max-width: 560px) {
   .hero-3d-inner {
-    min-height: 30rem;
+    min-height: 32rem;
   }
 
   .hero-mobile-actions {

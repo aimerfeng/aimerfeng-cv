@@ -2,185 +2,169 @@
 interface Project {
   name: string
   description: string
-  url: string
+  /** 公开仓库或线上地址；私有项目留空，不显示外链 */
+  url?: string
+  status: string
   techStack: string[]
   highlights: string[]
   category: string
 }
 
+const categoryIcons: Record<string, string> = {
+  'AI 创作平台': 'i-carbon-video',
+  'AI Agent 与开源工具': 'i-carbon-machine-learning',
+  '全栈产品与图形': 'i-carbon-application',
+  '早期项目': 'i-carbon-archive',
+}
+
 const projects: Project[] = [
-  // AI & 智能应用
+  // AI 创作平台
   {
-    name: 'NeuralFS',
-    description: 'AI 驱动的沉浸式文件系统外壳，将路径式存储转为意图式检索。',
-    url: 'https://github.com/aimerfeng/NeuralFS',
-    techStack: ['Python', 'LangChain', 'Vector DB', 'AI'],
+    name: 'Interlude 幕间',
+    description: '互动影视 / Galgame / 全屏小说 / 聊天小说一体的云端创作 SaaS：无限画布编辑器、AI 创作助手、编辑器内试玩，可导出 Web 包与 Steam 桌面包。',
+    status: '个人项目 · 私有仓库',
+    techStack: ['React 19', 'Fastify', 'Prisma', 'PostgreSQL', 'pg-boss', 'React Flow', 'Electron', 'Playwright'],
     highlights: [
-      '支持自然语言语义搜索',
-      '智能标签自动分类与组织',
-      '通过逻辑链条发现文件间关联',
-      '支持多种文件格式的内容理解',
+      '「一核三轴」架构：四种作品形态共用同一套 Schema、编译器、确定性剧情 VM 与存档，新增一种形态只需注册三处',
+      '所有写入统一走「命令 → 补丁 → ChangeSet」，带租约、基线版本与幂等；Postgres NOTIFY → SSE 实时同步',
+      '自研可断点续跑的 tool-use 创作 Agent，可直接改写整部作品，一个 ChangeSet 即一步撤销；12 条 AI 生产管线配积分预扣 / 结算 / 退回',
+      '共享游戏运行时：存读档、回退、已读快进、QTE、成就、流程图，中英日三语与手柄支持',
+      '约 6000 个测试用例（含 100+ Playwright E2E / 无障碍用例），多分辨率视觉 QA，CI 全链路',
     ],
-    category: 'AI & 智能应用',
+    category: 'AI 创作平台',
   },
   {
-    name: 'Hermes Agent Claw',
-    description: '基于 Tauri + React + TypeScript 的 AI Agent 桌面客户端，提供三面板协作界面。',
-    url: 'https://github.com/aimerfeng/Hermes-agent-claw',
-    techStack: ['Tauri', 'React', 'TypeScript', 'Framer Motion'],
+    name: '不夜 Buye',
+    description: '24 小时 AI 生成直播：抖音弹幕 → LLM 导演拆镜 → 视频模型 Worker 生成 → RTMP 推流。',
+    status: '个人项目 · 私有仓库',
+    techStack: ['Python', 'asyncio', 'PyAV', 'FFmpeg / RTMP', 'WebSocket', 'DeepSeek', 'MiniMax'],
     highlights: [
-      '三面板布局覆盖文件预览、终端监控和聊天窗口',
-      '支持聚焦/浏览模式跟踪 Agent 文件操作',
-      '适合展示桌面端 AI Agent 的交互形态',
+      '模型 Worker 独立进程隔离：控制面 WebSocket JSON，媒体面自包含 MPEG-TS 分块，视频模型可插拔',
+      'LLM 双层导演：Planner 产出与模型无关的镜头，PromptAdapter 改写为具体模型 Prompt；支持插队、撤单、观众投票',
+      '生成与播出解耦：恒帧率 Pacer 出帧，无内容时按「定格 → 待机画面 → 片库回放」逐级兜底，保证不断流',
+      '合规与成本：常驻 AI 生成标识，本地屏蔽词 + LLM 双重审核且 fail-closed，预算上限控制',
     ],
-    category: 'AI & 智能应用',
+    category: 'AI 创作平台',
+  },
+  // AI Agent 与开源工具
+  {
+    name: '然然 Bot',
+    description: 'Telegram 群聊 AI 机器人，基于自建 Agent Harness（原生 Function Calling 工具循环）。',
+    url: 'https://github.com/aimerfeng/ranran-bot',
+    status: '开源',
+    techStack: ['Python', 'Agent Harness', 'MCP', 'DeepSeek', 'GitHub Actions'],
+    highlights: [
+      '自研「Provider → 工具调用 → 结果回灌」循环，带步数预算与兜底，支持 DeepSeek API 与本机 Codex 双 Provider',
+      '多轮自动联网搜索、结果累积与来源去重；嵌套 Skill 包按需加载',
+      '通过 MCP Server 对外暴露 7 个工具，可被其他 Agent 复用',
+      '205 个测试，GitHub Actions 跑 lint 与覆盖率',
+    ],
+    category: 'AI Agent 与开源工具',
   },
   {
-    name: 'AI Web Coze',
-    description: '基于 FastAPI + React + Coze Agent 的智能招聘平台。',
-    url: 'https://github.com/aimerfeng/ai_web_coze',
-    techStack: ['FastAPI', 'React', 'Coze Agent', 'WebSocket'],
+    name: 'Motif 母题',
+    description: '开源前端设计素材市场：UI 组件、动效、Shader 与 Agent Skill，可实时调参、导出代码，或让 Agent 通过 MCP 检索下单。',
+    url: 'https://github.com/aimerfeng/motif',
+    status: '开源 · 规划 NFT 化后上线',
+    techStack: ['Next.js 16', 'Vercel AI SDK', 'MCP', 'esbuild', 'Solidity', 'viem'],
     highlights: [
-      '包含 AI 简历解析与智能面试流程',
-      '支持 HR 端与求职者端双角色流程',
-      '适合展示 AI 业务系统与平台化能力',
+      '整合并重新打磨 145 个组件 / 动效 / 区块条目，参数面板由条目定义自动生成，可导出 zip 或 shadcn registry',
+      'Studio Agent 生成组件后走与站点同一套 checker / compiler 校验，出错自修并截图自查',
+      'MCP 商店（6 个工具）+ llms.txt，153 个可一键安装的 Agent Skill',
+      '链上 DAO 审核社区（Registry、Curation、Governor 等 6 个合约）',
     ],
-    category: 'AI & 智能应用',
+    category: 'AI Agent 与开源工具',
   },
   {
-    name: 'AgentLink',
-    description: '企业级 AI 变现平台，支持 Google A2A 协议的多智能体编排。',
-    url: 'https://github.com/aimerfeng/AgentLink',
-    techStack: ['TypeScript', 'Node.js', 'A2A Protocol', 'Blockchain'],
+    name: 'IELTS Study OS',
+    description: '本地优先的单用户雅思学习系统：SRS 背词、听读练习、写作 AI 批改、机考模拟与 AI 教练。',
+    url: 'https://github.com/aimerfeng/ists',
+    status: '开源',
+    techStack: ['Next.js 16', 'React 19', 'SQLite', 'Zod', 'OpenAI API', 'Docker'],
     highlights: [
-      '支持 Google A2A 协议多智能体编排',
-      '通过 Prompt 加密保护知识产权',
-      '引入区块链所有权认证',
-      '提供面向企业的 AI 服务变现方案',
+      '支持文本 / PDF / DOCX / 图片 / 音频导入，AI 生成可编辑的练习题',
+      'AI Provider 按配置顺序回退，全部失败时降级到确定性本地逻辑，已保存内容不丢',
+      'SM-2 变体间隔重复与评分逻辑为纯函数领域层；以 ADR 记录关键架构决策',
     ],
-    category: 'AI & 智能应用',
+    category: 'AI Agent 与开源工具',
+  },
+  // 全栈产品与图形
+  {
+    name: '闪卡 Shanka',
+    description: '上传图片或 AI 生图制作随手机倾斜流光的镭射闪卡，含拟真开包、图鉴与分享；一套代码出微信小程序与 iOS App。',
+    status: '个人项目 · 私有仓库',
+    techStack: ['微信小程序', 'WebGL / GLSL', '微信云开发', 'Capacitor', 'gpt-image'],
+    highlights: [
+      '自研平台无关的 WebGL 渲染引擎：88 种镭射着色风格、8 档稀有度，卡背全部程序化绘制',
+      '纯 JS 实现端侧 GrabCut 抠图，在 Worker 中运行、零依赖',
+      'AI 制卡对话每轮输出结构化 JSON，配合盲盒与积分定价模型',
+      '发布脚本自动隔离并校验密钥；36 个测试套件',
+    ],
+    category: '全栈产品与图形',
   },
   {
-    name: 'HR QA System',
-    description: '智能 HR 问答系统，采用语义匹配与 LLM 双通道架构。',
-    url: 'https://github.com/aimerfeng/hr-qa-system',
-    techStack: ['Python', 'FastAPI', 'LangChain', 'Vue 3'],
+    name: '亲小说 v2',
+    description: '网络小说平台二期重构：读者端、作者工作台与运营后台，已具备生产形态，待部署推广。',
+    status: '个人项目 · 私有仓库',
+    techStack: ['Next.js 15', 'Drizzle', 'PostgreSQL', 'Tiptap + Yjs', 'Turborepo', 'Docker'],
     highlights: [
-      '采用语义匹配 + LLM 双通道架构',
-      '支持多模型对比（GPT / Claude / Gemini）',
-      '提供知识库管理与向量检索',
-      '前后端分离，支持 Docker 部署',
+      '为书稿实现类 Git 版本控制：分支、提交、三方合并冲突会话、快照 GC，基于 PG 引用 CAS 与 advisory lock',
+      'Tiptap + Yjs 协同编辑；AI 写作对话、行内建议与设定一致性检查，Agent 草稿提案 + 人工审批',
+      '约 1300 个测试用例；CI 覆盖迁移校验、PG 契约测试、Docker 镜像构建与容器冒烟',
     ],
-    category: 'AI & 智能应用',
+    category: '全栈产品与图形',
   },
   {
-    name: 'AI Assistant Agent',
-    description: '基于 OpenAI SDK 的智能代理系统，支持天气查询和职业规划。',
-    url: 'https://github.com/aimerfeng/hr-weather-qs',
-    techStack: ['Python', 'OpenAI SDK', 'FastAPI', 'Streaming'],
+    name: 'LOOM 命运织者',
+    description: 'Unity 实时牌组动作 Roguelite 垂直切片，评估投入产出后暂停。',
+    status: '技术探索 · 已暂停',
+    techStack: ['Unity 6', 'URP', 'C#', 'Python'],
     highlights: [
-      '集成天气查询与职业规划能力',
-      '支持流式输出，增强实时响应',
-      '支持多 AI 提供商切换',
-      '使用 Function Calling 完成工具调用',
+      '箱庭楼层规划、流场寻路与视线、后台存档与检查点，随机种子可复现',
+      '内容表经 Python 管线导出；无头 C# 检查工程 + 260+ 个 pytest 保证内容一致性',
+      '手写版画排线风格 Shader',
     ],
-    category: 'AI & 智能应用',
+    category: '全栈产品与图形',
   },
-  // Web3 & 区块链
+  // 早期项目
   {
     name: 'AI Smart Wallet',
-    description: '下一代智能合约钱包，结合 AI 意图解析、ZK 隐私策略与社交恢复。',
+    description: '智能合约钱包，结合 AI 意图解析、ZK 隐私策略与社交恢复。',
     url: 'https://github.com/aimerfeng/AI-Smart-Wallet',
+    status: '开源',
     techStack: ['Solidity', 'Hardhat', 'Ethers.js', 'ERC-4337'],
     highlights: [
-      '实现 ERC-4337 账户抽象标准',
-      '支持 AI 意图解析与自然语言交易',
-      '通过 ZK 隐私策略保护交易信息',
-      '提供社交恢复机制与守护者恢复',
+      '实现 ERC-4337 账户抽象，支持自然语言意图解析交易',
+      '社交恢复与守护者机制，ZK 隐私策略保护交易信息',
     ],
-    category: 'Web3 & 区块链',
-  },
-  {
-    name: 'Blog Reward',
-    description: '为博客场景提供 Web3 打赏能力的 Vue 组件。',
-    url: 'https://github.com/aimerfeng/bolg_reward',
-    techStack: ['Vue 3', 'TypeScript', 'Web3'],
-    highlights: [
-      '支持多链打赏场景',
-      '可作为博客组件复用',
-      '适合展示 Web3 能力与组件设计',
-    ],
-    category: 'Web3 & 区块链',
+    category: '早期项目',
   },
   {
     name: 'Vue Web3 Tip',
-    description: 'Vue 3 Web3 打赏组件，支持 Ethereum、Polygon 与 Solana 多链。',
+    description: 'Vue 3 多链打赏组件，支持 Ethereum、Polygon 与 Solana。',
     url: 'https://github.com/aimerfeng/vue-web3-tip',
-    techStack: ['Vue 3', 'TypeScript', 'Web3.js', 'Ethers.js'],
+    status: '开源 · npm 包',
+    techStack: ['Vue 3', 'TypeScript', 'Ethers.js', 'Web3.js'],
     highlights: [
-      '支持 ETH / MATIC / SOL 多链',
-      '集成 MetaMask 与 Phantom 钱包',
-      '支持样式自定义和预设金额',
-      '已发布为 npm 包，可直接复用',
+      '集成 MetaMask 与 Phantom 钱包，支持样式自定义与预设金额',
+      '已发布为 npm 包，用于个人博客打赏',
     ],
-    category: 'Web3 & 区块链',
-  },
-  // 移动端 & 桌面应用
-  {
-    name: 'Premium Todo',
-    description: '数字子弹笔记本 Android 应用，具备真实墨水物理模拟。',
-    url: 'https://github.com/aimerfeng/todolist',
-    techStack: ['Kotlin', 'OpenGL ES 3.0', 'Android', 'Physics'],
-    highlights: [
-      '实现真实墨水物理模拟效果',
-      '支持智能符号识别（复选框 / 列表）',
-      '基于 OpenGL ES 3.0 的高性能渲染',
-      '结合手写笔记与数字任务管理',
-    ],
-    category: '移动端 & 桌面应用',
+    category: '早期项目',
   },
   {
-    name: 'AutoCamera',
-    description: '基于 Blazor WebAssembly 的自动拍照应用。',
-    url: 'https://github.com/aimerfeng/The-Sixth-Request-for-Assistance-Project',
-    techStack: ['C#', 'Blazor', 'WebAssembly', '.NET'],
+    name: 'HR QA System',
+    description: '智能 HR 问答系统，语义匹配 + LLM 双通道架构。',
+    url: 'https://github.com/aimerfeng/hr-qa-system',
+    status: '开源',
+    techStack: ['Python', 'FastAPI', 'LangChain', 'Vue 3'],
     highlights: [
-      '支持定时自动拍照',
-      '提供照片管理与预览',
-      '支持前后摄像头切换',
-      '可通过 WebAssembly 跨平台运行',
+      '语义匹配命中优先，未命中再走 LLM，支持 GPT / Claude / Gemini 多模型对比',
+      '知识库管理与向量检索，前后端分离、Docker 部署',
     ],
-    category: '移动端 & 桌面应用',
-  },
-  // 个人网站
-  {
-    name: 'AimerFeng Blog',
-    description: '个人技术博客，采用玻璃质感设计并支持 Web3 打赏。',
-    url: 'https://github.com/aimerfeng/AimerFeng_blog',
-    techStack: ['Vue 3', 'Vite', 'UnoCSS', 'TypeScript'],
-    highlights: [
-      '采用玻璃质感 UI 设计',
-      '集成 Web3 多链打赏功能',
-      '完成 SEO 优化与 OG 图片生成',
-      '支持 GitHub OAuth 在线投稿',
-    ],
-    category: '个人网站',
-  },
-  {
-    name: 'Qinxiaoshuo',
-    description: '面向二次元轻小说与漫画的平台项目，强调阅读与共创流程。',
-    url: 'https://github.com/aimerfeng/qinxiaoshuoqinzhixiaoshuo',
-    techStack: ['Next.js', 'NestJS', 'TypeScript', 'Prisma'],
-    highlights: [
-      '覆盖前后端完整平台结构',
-      '包含阅读、创作与社区相关模块',
-      '适合展示复杂产品的信息架构能力',
-    ],
-    category: '个人网站',
+    category: '早期项目',
   },
 ]
 
-// 按类别分组
 const categories = [...new Set(projects.map(p => p.category))]
 </script>
 
@@ -194,11 +178,7 @@ const categories = [...new Set(projects.map(p => p.category))]
     <div class="space-y-8">
       <div v-for="category in categories" :key="category">
         <h3 class="text-sm font-medium text-light mb-3 flex items-center gap-2">
-          <div 
-            :class="category === 'AI & 智能应用' ? 'i-carbon-machine-learning' : 
-                   category === 'Web3 & 区块链' ? 'i-carbon-blockchain' :
-                   category === '移动端 & 桌面应用' ? 'i-carbon-mobile' : 'i-carbon-globe'"
-          />
+          <div :class="categoryIcons[category] ?? 'i-carbon-globe'" />
           {{ category }}
         </h3>
         
@@ -211,8 +191,12 @@ const categories = [...new Set(projects.map(p => p.category))]
           >
             <div class="card-surface project-card p-5">
               <div class="mb-2 flex items-start justify-between gap-3">
-                <h4 class="font-semibold">{{ project.name }}</h4>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h4 class="font-semibold">{{ project.name }}</h4>
+                  <span class="project-status text-xs">{{ project.status }}</span>
+                </div>
                 <a
+                  v-if="project.url"
                   :href="project.url"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -251,6 +235,18 @@ const categories = [...new Set(projects.map(p => p.category))]
 </template>
 
 <style scoped>
+.project-status {
+  border: 1px solid rgb(148 163 184 / 0.35);
+  border-radius: 9999px;
+  padding: 0.1rem 0.55rem;
+  color: rgb(100 116 139);
+  white-space: nowrap;
+}
+
+:global(.dark) .project-status {
+  color: rgb(148 163 184);
+}
+
 .project-item {
   outline: none;
   perspective: 900px;

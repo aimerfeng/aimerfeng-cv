@@ -1,17 +1,21 @@
 <script setup lang="ts">
 const experiences = [
   {
-    company: '流年光影',
-    position: 'AI 全栈开发',
+    company: '杭州流年光影传媒有限公司',
+    position: 'AI 全栈开发 · 核心开发者',
     period: '2026.02 - 至今',
     location: '杭州',
-    description: '负责字字动画的画布开发，以及工作流 Agent 的设计与实现。',
+    description: '公司 AI 创作产品线的核心开发者：从字字画布桌面版，到全新架构的 OmniBoard 创作平台（omniboard.tv），再到桌面端 AI 视频 Agent OmniCut。',
     highlights: [
-      '负责字字动画相关的 Canvas 画布开发',
-      '搭建工作流 Agent 能力，支持任务编排与自动化执行',
-      '围绕产品交互和开发效率，持续优化实现链路',
+      '主导 OmniBoard 全新架构重写并上线：集 AI 漫剧、剧本、分镜、视频于一体的无限画布工作台，贡献约 2/3 的代码提交',
+      '设计画布命令总线与按成员 / 画布隔离的撤销历史；节点的类型化端口校验在 UI、API、Agent 三端共用一套规则',
+      '搭建画布 Agent 与独立 Omni Agent（规划、流式响应、工具失败恢复），并通过工具清单向外部 Agent 开放 100+ 画布操作',
+      '接入 Seedance、Kling、Wan、MiniMax、Qwen 等视频 / 图像 / 语音模型，配合 FFmpeg、TTS、视觉分析等 Serverless 媒体函数',
+      '负责交付链路：k3s 滚动发布与数据库迁移 Job、国内 / 海外双版本、微信支付 + Stripe 计费，并为企业客户交付电商内容定制版',
+      '独立开发 OmniCut：Electron 桌面端 + Agent Server，75 个剪辑工具、FFmpeg 滤镜图渲染、本地语音识别、7 类题材 Playbook',
+      '早期负责字字画布 v1 / 2.0：Electron 桌面版持续迭代发布；2.0 抽离后端契约，支持桌面、嵌入、SaaS 等 6 种后端适配',
     ],
-    techStack: ['Canvas', 'TypeScript', 'Vue.js', 'Agent', 'Workflow'],
+    techStack: ['TypeScript', 'React', 'React Flow', 'Fastify', 'PostgreSQL', 'Electron', 'LangGraph', 'FFmpeg', 'k3s'],
   },
   {
     company: '普特教育',
